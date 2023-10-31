@@ -1,0 +1,28 @@
+name: BBInforma_webserver
+on:
+  push:
+    branches:
+      - "!main"
+      - "!develop"
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_call:    
+  workflow_dispatch:
+    inputs:
+      repo_commit_id:
+       description: 'Enter the commit SHA you want to build (leave blank for the latest)'
+       required: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Create Build Info File
+        working-directory: ${{env.GITHUB_WORKSPACE}}
+        run: |  
+          echo "Repo Name  Name= ${{ GITHUB.REPOSITORY }}"
