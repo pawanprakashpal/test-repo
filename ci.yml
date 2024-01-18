@@ -25,4 +25,4 @@ jobs:
       - name: Create Build Info File
         working-directory: ${{env.GITHUB_WORKSPACE}}
         run: |  
-          echo "Repo Name  Name= ${{ GITHUB.REPOSITORY }}"
+          echo "Repo Name  Name= ${{ GITHUB.REPOSITORY }}" 
